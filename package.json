@@ -1,0 +1,15 @@
+{
+  "name": "remarkable-assignment",
+  "version": "0.0.1",
+  "description": "reMarkable assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "remarkable",
+    "assignment"
+  ],
+  "author": "Jeremy Karlsson <jeremy@barlingshult.se>",
+  "license": "MIT"
+}
