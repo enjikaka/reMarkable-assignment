@@ -1,4 +1,5 @@
 import type { Route } from "./+types/weather";
+import styles from "./weather.module.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,9 +18,9 @@ export default function Weather({
   loaderData,
 }: Route.ComponentProps) {
   return (
-    <>
+    <article className={styles.weatherArticle}>
       <h1>Weather</h1>
       {JSON.stringify(loaderData.data)}
-    </>
+    </article>
   );
 }
