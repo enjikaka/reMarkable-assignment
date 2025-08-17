@@ -6,7 +6,15 @@ import styles from "./weather-links.module.css";
 export function WeatherLinks() {
   return (
     <section className={styles.weatherLinks}>
-      <Link to="/weather/here">Use my location</Link>
+      <Link to="/weather/here">
+      <figure>
+          <img src="/pointer.svg" alt="Pointer representing my location" />
+          <figcaption>
+            <span>My location</span>
+            <span>World</span>
+          </figcaption>
+        </figure>
+      </Link>
       <Link to="/weather/oslo">
         <figure>
           <img src="/oslo-stencil.svg" alt="Stencil over Oslo" />
