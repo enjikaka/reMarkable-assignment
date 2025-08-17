@@ -2,11 +2,20 @@ type Latitude = number;
 type Longitude = number;
 
 async function promisedGeolocation(): Promise<[Latitude, Longitude]> {
+    const lastLocation = localStorage.getItem("last-location");
+
+    if (lastLocation) {
+        const [lat, lon] = lastLocation.split(",").map(n => parseFloat(n));
+        return [lat, lon];
+    }
+
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition((position) => {
             const coords = [position.coords.latitude, position.coords.longitude];
 
             const [lat, lon] = coords.map((coord) => coord.toFixed(4)).map(n => parseFloat(n));
+
+            localStorage.setItem("last-location", [lat, lon].join(","));
 
             resolve([lat, lon]);
         }, (error) => {

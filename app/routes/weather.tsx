@@ -2,29 +2,8 @@ import { getLocation } from "~/helpers/locations";
 import type { Route } from "./+types/weather";
 import styles from "./weather.module.css";
 
-async function getWeatherData(lat: number, lon: number) {
-  const response = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`, {
-    headers: {
-      "User-Agent": "enjikaka-coding-assignment",
-    },
-  });
-  const data = await response.json();
-
-  return data;
-}
-
-async function getLocationData(lat: number, lon: number) {
-  const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=geojson`, {
-    headers: {
-      "User-Agent": "enjikaka-coding-assignment",
-    },
-  });
-  const data = await response.json();
-
-  console.log(data);
-
-  return data;
-}
+import { getWeatherData } from "~/helpers/weather-fetcher";
+import { getLocationData } from "~/helpers/location-fetcher";
 
 export function meta({ }: Route.MetaArgs) {
   return [
