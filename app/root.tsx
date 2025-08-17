@@ -33,6 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <header>
+          <h1>reMarkable Environment</h1>
+        </header>
         {children}
         <ScrollRestoration />
         <Scripts />
