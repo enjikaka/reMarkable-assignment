@@ -1,5 +1,5 @@
+import { WeatherLinks } from "~/components/weather-links/weather-links";
 import type { Route } from "./+types/home";
-import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,8 +11,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
-      <Link to="/weather">Weather</Link>
+      <WeatherLinks />
     </>
   );
 }
