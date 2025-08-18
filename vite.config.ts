@@ -3,6 +3,5 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [reactRouter(), tsconfigPaths()],
-  base: process.env.NODE_ENV === "production" ? "/reMarkable-assignment/" : "/",
+  plugins: [reactRouter(), tsconfigPaths()]
 });
