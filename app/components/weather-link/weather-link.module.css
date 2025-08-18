@@ -1,11 +1,13 @@
 .weatherLink {
     text-decoration: none;
     color: light-dark(black, white);
+    width: 100%;
 }
 
 .weatherLink figure {
     position: relative;
     margin: 0;
+    width: 100%;
 
     .inlineWeather {
         position: absolute;
@@ -22,14 +24,15 @@
 
     .imageWrapper {
         border: 1px solid;
-        overflow: hidden;
+        aspect-ratio: 1 / 1.4142;
+        position: relative;
     }
 
     img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100%;
-        aspect-ratio: 1 / 1.4142;
-        object-fit: contain;
-        object-position: bottom;
         transition: transform 1s ease-in-out;
         transform-origin: bottom;
 
