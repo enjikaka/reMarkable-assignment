@@ -1,6 +1,9 @@
 .weatherLinks {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 170px));
+    place-items: center;
+    place-content: center;
     gap: 1rem;
-    margin: 1rem;
+    margin: 2.625rem 1.125rem;
+    padding: 0;
 }

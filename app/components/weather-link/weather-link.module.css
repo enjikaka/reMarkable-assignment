@@ -23,6 +23,7 @@
 
     .imageWrapper {
         border: 1px solid;
+        overflow: hidden;
     }
 
     img {
@@ -30,6 +31,8 @@
         aspect-ratio: 1 / 1.4142;
         object-fit: contain;
         object-position: bottom;
+        transition: transform 1s ease-in-out;
+        transform-origin: bottom;
 
         @media (prefers-color-scheme: dark) {
             filter: invert(1);
@@ -52,4 +55,8 @@
             opacity: 0.5;
         }
     }
+}
+
+.weatherLink:hover img {
+    transform: scale(0.95);
 }
