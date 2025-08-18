@@ -7,7 +7,7 @@ export function WeatherLinks() {
   return (
     <section className={styles.weatherLinks}>
       <Link to="/weather/here">
-      <figure>
+        <figure>
           <img src="/pointer.svg" alt="Pointer representing my location" />
           <figcaption>
             <span>My location</span>
@@ -25,8 +25,8 @@ export function WeatherLinks() {
         </figure>
       </Link>
       <Link to="/weather/stockholm">
-      <figure>
-        <img src="/stockholm-stencil.svg" alt="Stencil over Stockholm" />
+        <figure>
+          <img src="/stockholm-stencil.svg" alt="Stencil over Stockholm" />
           <figcaption>
             <span>Stockholm</span>
             <span>Sweden</span>
@@ -34,11 +34,20 @@ export function WeatherLinks() {
         </figure>
       </Link>
       <Link to="/weather/helsingfors">
-      <figure>
-          <img src="/helsingfors.png" alt="Stencil over Helsingfors" />
+        <figure>
+          <img src="/helsingfors-stencil.svg" alt="Stencil over Helsingfors" />
           <figcaption>
             <span>Helsingfors</span>
             <span>Finland</span>
+          </figcaption>
+        </figure>
+      </Link>
+      <Link to="/weather/copenhagen">
+        <figure>
+          <img src="/copenhagen-stencil.svg" alt="Stencil over Copenhagen" />
+          <figcaption>
+            <span>Copenhagen</span>
+            <span>Denmark</span>
           </figcaption>
         </figure>
       </Link>

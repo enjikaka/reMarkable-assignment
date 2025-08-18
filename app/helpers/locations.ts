@@ -24,6 +24,9 @@ async function promisedGeolocation(): Promise<[Latitude, Longitude]> {
     });
 }
 
+/**
+ * Get coordinates for known locations. Limited to 4 decimals due to rate limiting in reverse geocoding APIs.
+ */
 export async function getLocation (name: string): Promise<[Latitude, Longitude]> {
     switch (name) {
         case "here":
@@ -34,6 +37,8 @@ export async function getLocation (name: string): Promise<[Latitude, Longitude]>
             return [59.3268, 18.0718];
         case "helsingfors":
             return [60.1695, 24.9391];
+        case 'copenhagen':
+            return [55.6761, 12.5683];
     }
 
     throw new Error(`Unknown location: ${name}`);
