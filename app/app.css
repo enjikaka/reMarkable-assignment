@@ -1,25 +1,24 @@
-@view-transition {
-  navigation: auto;
-}
-
 html {
   color-scheme: light dark;
 }
 
 body {
   margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
 }
 
-header {
+body > header {
   height: 66px;
   border-bottom: 1px solid light-dark(black, white);
   display: grid;
   place-items: center;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 header h1 {
   margin: 0;
   font-size: 1rem;
-
 }

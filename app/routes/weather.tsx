@@ -37,8 +37,13 @@ export default function Weather({
 
   return (
     <article className={styles.weatherArticle}>
-      <h1>{cityOrVillage}</h1>
-      {weather.properties.timeseries[0].data.instant.details.air_temperature}
+      <header>
+        <img src={`/${position}-stencil.svg`} alt={`Stencil over ${position}`} />
+        <h1>{cityOrVillage}</h1>
+      </header>
+      <div className={styles.weatherBlock}>
+        <span className={styles.temperature}>{weather.properties.timeseries[0].data.instant.details.air_temperature} °C</span>
+      </div>
     </article>
   );
 }

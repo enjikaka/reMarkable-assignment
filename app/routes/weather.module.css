@@ -1,4 +1,48 @@
 .weatherArticle {
     margin: 1rem;
-    view-transition-name: weather-article;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.weatherArticle h1 {
+    view-transition-name: location-metadata;
+}
+
+.weatherArticle p {
+    flex: 1;
+}
+
+.weatherArticle img {
+    view-transition-name: location-image;
+    width: 100%;
+
+    @media (prefers-color-scheme: dark) {
+        filter: invert(1);
+    }
+}
+
+.temperature {
+    view-transition-name: location-temperature;
+}
+
+.weatherArticle header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        max-width: 50vw;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.weatherBlock {
+    font-size: 2rem;
+    text-align: center;
 }

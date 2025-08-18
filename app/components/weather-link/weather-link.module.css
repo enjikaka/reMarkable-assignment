@@ -1,5 +1,4 @@
 .weatherLink {
-    view-transition-name: weather-article;
     text-decoration: none;
     color: light-dark(black, white);
 }
@@ -59,4 +58,12 @@
 
 .weatherLink:hover img {
     transform: scale(0.95);
+}
+
+.transitioningTitle {
+    view-transition-name: location-metadata;
+}
+
+.transitioningImage {
+    view-transition-name: location-image;
 }
