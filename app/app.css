@@ -11,10 +11,11 @@ body {
 }
 
 header {
-  height: 50px;
+  height: 66px;
   border-bottom: 1px solid light-dark(black, white);
   display: grid;
   place-items: center;
+  box-sizing: border-box;
 }
 
 header h1 {
