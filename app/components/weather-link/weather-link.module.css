@@ -1,11 +1,12 @@
 .weatherLink {
     view-transition-name: weather-article;
     text-decoration: none;
-    color: #000;
+    color: light-dark(black, white);
 }
 
 .weatherLink figure {
     position: relative;
+    margin: 0;
 
     .inlineWeather {
         position: absolute;
@@ -18,15 +19,21 @@
         align-items: center;
         font-size: 1.2em;
         font-weight: bold;
-        color: #000;
+    }
+
+    .imageWrapper {
+        border: 1px solid;
     }
 
     img {
         width: 100%;
         aspect-ratio: 1 / 1.4142;
-        border: 1px solid #000;
         object-fit: contain;
         object-position: bottom;
+
+        @media (prefers-color-scheme: dark) {
+            filter: invert(1);
+        }
     }
 
     figcaption {

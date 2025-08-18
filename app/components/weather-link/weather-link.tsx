@@ -17,7 +17,9 @@ export function WeatherLink(props: Props) {
         <Link to={href} className={styles.weatherLink}>
             <figure>
                 <InlineWeather position={props.position} className={styles.inlineWeather} />
-                <img src={graphic} alt={altText} />
+                <div className={styles.imageWrapper}>
+                    <img src={graphic} alt={altText} />
+                </div>
                 <figcaption>
                     <span>{props.position}</span>
                     <span>{props.subtitle}</span>
