@@ -4,36 +4,3 @@
     gap: 1rem;
     margin: 1rem;
 }
-
-.weatherLinks a {
-    view-transition-name: weather-article;
-    text-decoration: none;
-    color: #000;
-}
-
-.weatherLinks figure {
-    img {
-        width: 100%;
-        aspect-ratio: 1 / 1.4142;
-        border: 1px solid #000;
-        object-fit: contain;
-        object-position: bottom;
-    }
-
-    figcaption {
-        padding: 0.2em 0rem;
-        display: flex;
-        flex-flow: column wrap;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-
-        span:first-child {
-            
-        }
-
-        span:last-child {
-            font-size: 0.9em;
-            opacity: 0.5;
-        }
-    }
-}
