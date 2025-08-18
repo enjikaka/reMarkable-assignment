@@ -7,7 +7,20 @@ import { getWeatherData } from './helpers/weather-fetcher';
 import type { Position } from './types';
 import { getLocationData } from './helpers/location-fetcher';
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+
+      staleTime: 5 * 60 * 1000,
+
+      gcTime: 10 * 60 * 1000,
+
+      retry: 3,
+
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export const weatherQuery = (position: Position) =>
   queryOptions({
