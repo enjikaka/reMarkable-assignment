@@ -9,6 +9,7 @@ export function WeatherLinks() {
       <WeatherLink position="stockholm" subtitle="Sweden" />
       <WeatherLink position="helsingfors" subtitle="Finland" />
       <WeatherLink position="copenhagen" subtitle="Denmark" />
+      <WeatherLink position="reykjavik" subtitle="Iceland" />
     </section>
   );
 }

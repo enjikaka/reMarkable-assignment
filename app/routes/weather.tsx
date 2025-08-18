@@ -1,9 +1,10 @@
-import { getLocation } from "~/helpers/locations";
 import type { Route } from "./+types/weather";
 import styles from "./weather.module.css";
 
-import { getWeatherData } from "~/helpers/weather-fetcher";
-import { getLocationData } from "~/helpers/location-fetcher";
+import { locationDataQuery, queryClient, weatherQuery } from "~/queryClient";
+import type { Position } from "~/types";
+import { useLoaderData } from "react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -12,27 +13,32 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export async function clientLoader({ params }: Route.LoaderArgs) {
-  const { location } = params;
-  const [lat, lon] = await getLocation(location);
+  const { location: position } = params;
 
-  const [
-    weatherData,
-    locationData
-  ] = await Promise.all([
-    getWeatherData(lat, lon),
-    getLocationData(lat, lon),
+  await Promise.all([
+    queryClient.ensureQueryData(locationDataQuery(position as Position)),
+    queryClient.ensureQueryData(weatherQuery(position as Position))
   ]);
 
-  return { weather: weatherData, location: locationData };
+  return { position: position as Position };
 }
 
 export default function Weather({
   loaderData,
 }: Route.ComponentProps) {
+  const { position } = useLoaderData() as Awaited<
+    ReturnType<typeof clientLoader>
+  >;
+
+  const { data: weather } = useSuspenseQuery(weatherQuery(position));
+  const { data: location } = useSuspenseQuery(locationDataQuery(position));
+
+  const cityOrVillage = location.features[0].properties.address.city ?? location.features[0].properties.address.village;
+
   return (
     <article className={styles.weatherArticle}>
-      <h1>{loaderData.location.features[0].properties.address.city ?? loaderData.location.features[0].properties.address.village}</h1>
-      {loaderData.weather.properties.timeseries[0].data.instant.details.air_temperature}
+      <h1>{cityOrVillage}</h1>
+      {weather.properties.timeseries[0].data.instant.details.air_temperature}
     </article>
   );
 }
