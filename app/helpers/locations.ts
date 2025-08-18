@@ -1,5 +1,7 @@
-type Latitude = number;
-type Longitude = number;
+import type { Position } from "~/types";
+
+export type Latitude = number;
+export type Longitude = number;
 
 async function promisedGeolocation(): Promise<[Latitude, Longitude]> {
     const lastLocation = localStorage.getItem("last-location");
@@ -27,7 +29,7 @@ async function promisedGeolocation(): Promise<[Latitude, Longitude]> {
 /**
  * Get coordinates for known locations. Limited to 4 decimals due to rate limiting in reverse geocoding APIs.
  */
-export async function getLocation (name: string): Promise<[Latitude, Longitude]> {
+export async function getLocation(name: Position): Promise<[Latitude, Longitude]> {
     switch (name) {
         case "here":
             return promisedGeolocation();

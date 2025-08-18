@@ -1,0 +1,1 @@
+export type Position = 'here' | 'oslo' | 'stockholm' | 'helsingfors' | 'copenhagen';
