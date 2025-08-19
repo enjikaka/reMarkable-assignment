@@ -1,0 +1,32 @@
+.forecast {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    contain: strict;
+    height: 200px;
+    margin: 2rem 0;
+}
+
+.forecastItem {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1.4142;
+    border: 1px solid;
+    scroll-snap-align: start;
+}
+
+.forecastItemIcon {
+    aspect-ratio: 1 / 1;
+    width: 60%;
+}
+
+.forecastItemTemperature {
+    font-size: 1.2rem;
+}
+
+.forecastItemTime {
+    font-size: 0.8rem;
+}
