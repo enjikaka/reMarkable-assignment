@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { locationDataQuery } from "~/queryClient";
+import { parseTown } from "~/helpers/geocode-parser";
 
 type Props = Readonly<{
     position: Position;
@@ -14,7 +15,7 @@ type Props = Readonly<{
 }>
 
 export function WeatherLink(props: Props) {
-    const [title, setTitle] = useState(props.position);
+    const [title, setTitle] = useState<string>(props.position);
     const [subtitle, setSubtitle] = useState(props.subtitle);
     const locationData = useQuery(locationDataQuery(props.position, props.position === 'here'));
 
@@ -23,11 +24,11 @@ export function WeatherLink(props: Props) {
     const altText = `Stencil over ${props.position}`;
 
     useEffect(() => {
-        if (locationData.data) {
-            setTitle(locationData.data.features[0].properties.address.city ?? locationData.data.features[0].properties.address.village);
+        if (locationData.data && props.position === 'here') {
+            setTitle(parseTown(locationData.data.features[0].properties.address));
             setSubtitle(locationData.data.features[0].properties.address.country);
         }
-    }, [locationData.data]);
+    }, [locationData.data, props.position]);
 
     const isTransitioning = useViewTransitionState(href);
 

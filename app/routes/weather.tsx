@@ -6,6 +6,7 @@ import type { Position } from "~/types";
 import { useLoaderData } from "react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
+import { parseTown } from "~/helpers/geocode-parser";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -34,16 +35,16 @@ export default function Weather({
   const { data: weather } = useSuspenseQuery(weatherQuery(position));
   const { data: location } = useSuspenseQuery(locationDataQuery(position));
 
-  const cityOrVillage = location.features[0].properties.address.city ?? location.features[0].properties.address.village;
+  const cityOrVillage = parseTown(location.features[0].properties.address);
 
   return (
     <article className={styles.weatherArticle}>
       <header>
-        <img className={styles.icon} src={'/weather-icons/' + yrSymbolCodeToWeatherIcon(weather.properties.timeseries[0].data.next_1_hours.summary.symbol_code) + '.svg'} alt={`Weather icon for ${position}`} />
         <img className={styles.stencil} src={`/${position}-stencil.svg`} alt={`Stencil over ${position}`} />
         <h1>{cityOrVillage}</h1>
       </header>
       <div className={styles.weatherBlock}>
+        <img className={styles.icon} src={'/weather-icons/' + yrSymbolCodeToWeatherIcon(weather.properties.timeseries[0].data.next_1_hours.summary.symbol_code) + '.svg'} alt={`Weather icon for ${position}`} />
         <span className={styles.temperature}>{weather.properties.timeseries[0].data.instant.details.air_temperature} °C</span>
       </div>
     </article>
