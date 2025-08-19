@@ -19,6 +19,7 @@ export default function Home() {
         <WeatherLink position="helsingfors" subtitle="Finland" />
         <WeatherLink position="copenhagen" subtitle="Denmark" />
         <WeatherLink position="reykjavik" subtitle="Iceland" />
+        <WeatherLink position="mariehamn" subtitle="Åland" />
       </section>
     </>
   );

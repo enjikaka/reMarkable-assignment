@@ -43,6 +43,8 @@ export async function getLocation(name: Position): Promise<[Latitude, Longitude]
             return [55.6761, 12.5683];
         case 'reykjavik':
             return [64.1281, -21.9352];
+        case 'mariehamn':
+            return [60.0970, 19.9388];
     }
 
     throw new Error(`Unknown location: ${name}`);
