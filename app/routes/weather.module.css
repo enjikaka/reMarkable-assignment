@@ -14,12 +14,18 @@
 }
 
 .weatherArticle img {
-    view-transition-name: location-image;
-    width: 100%;
-
     @media (prefers-color-scheme: dark) {
         filter: invert(1);
     }
+}
+
+.icon {
+    width: 128px;
+}
+
+.stencil {
+    width: 100%;
+    view-transition-name: location-image;
 }
 
 .temperature {

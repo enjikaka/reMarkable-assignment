@@ -5,6 +5,7 @@ import { locationDataQuery, queryClient, weatherQuery } from "~/queryClient";
 import type { Position } from "~/types";
 import { useLoaderData } from "react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -38,7 +39,8 @@ export default function Weather({
   return (
     <article className={styles.weatherArticle}>
       <header>
-        <img src={`/${position}-stencil.svg`} alt={`Stencil over ${position}`} />
+        <img className={styles.icon} src={'/weather-icons/' + yrSymbolCodeToWeatherIcon(weather.properties.timeseries[0].data.next_1_hours.summary.symbol_code) + '.svg'} alt={`Weather icon for ${position}`} />
+        <img className={styles.stencil} src={`/${position}-stencil.svg`} alt={`Stencil over ${position}`} />
         <h1>{cityOrVillage}</h1>
       </header>
       <div className={styles.weatherBlock}>
