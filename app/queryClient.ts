@@ -40,7 +40,7 @@ export const weatherQuery = (position: Position) =>
     },
   });
 
-export const locationDataQuery = (position: Position) =>
+export const locationDataQuery = (position: Position, enabled?: boolean) =>
   queryOptions({
     queryKey: ['locationData', position],
     queryFn: async () => {
@@ -56,4 +56,5 @@ export const locationDataQuery = (position: Position) =>
 
       return locationData;
     },
+    enabled,
   });

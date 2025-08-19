@@ -42,7 +42,7 @@
     }
 
     figcaption {
-        padding: 0.2em 0rem;
+        padding: 0.375em 0rem;
         display: flex;
         flex-flow: column wrap;
         font-family: 'Inter', sans-serif;
