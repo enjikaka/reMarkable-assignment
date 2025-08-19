@@ -1,5 +1,6 @@
-import { WeatherLinks } from "~/components/weather-links/weather-links";
 import type { Route } from "./+types/home";
+import { WeatherLink } from "~/components/weather-link/weather-link";
+import styles from "./home.module.css";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -11,7 +12,14 @@ export function meta({ }: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <WeatherLinks />
+      <section className={styles.weatherLinks}>
+        <WeatherLink position="here" subtitle="My location" />
+        <WeatherLink position="oslo" subtitle="Norway" />
+        <WeatherLink position="stockholm" subtitle="Sweden" />
+        <WeatherLink position="helsingfors" subtitle="Finland" />
+        <WeatherLink position="copenhagen" subtitle="Denmark" />
+        <WeatherLink position="reykjavik" subtitle="Iceland" />
+      </section>
     </>
   );
 }
