@@ -7,7 +7,6 @@
     scroll-snap-type: x mandatory;
     contain: strict;
     height: 200px;
-    margin: 2rem 0;
 }
 
 .forecastItem {

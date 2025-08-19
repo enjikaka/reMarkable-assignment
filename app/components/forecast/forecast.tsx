@@ -4,9 +4,11 @@ import type { Position } from "~/types";
 import styles from "./forecast.module.css";
 import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
 import type { YrGeoJSON } from "~/yr.types";
+import clsx from "clsx";
 
 type Props = Readonly<{
     position: Position;
+    className?: string;
 }>;
 
 export function Forecast(props: Props) {
@@ -14,7 +16,7 @@ export function Forecast(props: Props) {
     const geojson = weather.data as YrGeoJSON;
 
     return (
-        <div className={styles.forecast}>
+        <div className={clsx(styles.forecast, props.className)}>
             {geojson.properties.timeseries.map(timeSeries => {
                 const symbolCode = timeSeries.data.next_1_hours?.summary.symbol_code;
                 const icon = symbolCode ? yrSymbolCodeToWeatherIcon(symbolCode) : 'cloudy';

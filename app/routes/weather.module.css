@@ -26,6 +26,8 @@
 
 .stencil {
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
     view-transition-name: location-image;
 }
 
@@ -57,8 +59,6 @@
     flex-flow: column nowrap;
 }
 
-.upcomingWeather {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 1rem;
+.forecast {
+    margin: 2rem 1rem;
 }

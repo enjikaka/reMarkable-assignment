@@ -48,7 +48,7 @@ export default function Weather({
         <img className={styles.icon} src={'/weather-icons/' + yrSymbolCodeToWeatherIcon(weather.properties.timeseries[0].data.next_1_hours.summary.symbol_code) + '.svg'} alt={`Weather icon for ${position}`} />
         <span className={styles.temperature}>{weather.properties.timeseries[0].data.instant.details.air_temperature} °C</span>
       </div>
-      <Forecast position={position} />
+      <Forecast position={position} className={styles.forecast} />
     </article>
   );
 }
