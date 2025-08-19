@@ -1,5 +1,6 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
@@ -40,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <header>
-          <h1>reMarkable Environment</h1>
+          <h1><Link to="/" viewTransition>reMarkable Environment</Link></h1>
         </header>
         {children}
         <ScrollRestoration />
