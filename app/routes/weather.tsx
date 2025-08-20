@@ -39,6 +39,7 @@ export default function Weather() {
 			<header>
 				<img
 					className={styles.stencil}
+					data-stencil="weather-page"
 					src={`/${position}-stencil.svg`}
 					alt={`Stencil over ${position}`}
 				/>
