@@ -1,16 +1,15 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useLoaderData } from "react-router";
+import { Forecast } from "~/components/forecast/forecast";
+import { InlineWeather } from "~/components/inline-weather/inline-weather";
+import { parseTown } from "~/helpers/geocode-parser";
+import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
+import { locationDataQuery, queryClient, weatherQuery } from "~/queryClient";
+import type { Position } from "~/types";
 import type { Route } from "./+types/weather";
 import styles from "./weather.module.css";
 
-import { locationDataQuery, queryClient, weatherQuery } from "~/queryClient";
-import type { Position } from "~/types";
-import { useLoaderData } from "react-router";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
-import { parseTown } from "~/helpers/geocode-parser";
-import { Forecast } from "~/components/forecast/forecast";
-import { InlineWeather } from "~/components/inline-weather/inline-weather";
-
-export function meta({}: Route.MetaArgs) {
+export function meta() {
 	return [{ title: "Weather" }];
 }
 

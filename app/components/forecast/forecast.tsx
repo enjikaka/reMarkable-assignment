@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import clsx from "clsx";
+import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
 import { weatherQuery } from "~/queryClient";
 import type { Position } from "~/types";
-import styles from "./forecast.module.css";
-import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
 import type { YrGeoJSON } from "~/yr.types";
-import clsx from "clsx";
+import styles from "./forecast.module.css";
 
 type Props = Readonly<{
 	position: Position;

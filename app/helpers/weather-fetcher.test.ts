@@ -1,4 +1,4 @@
-import { expect, suite, test, vi, beforeEach, afterEach } from "vitest";
+import { afterEach, beforeEach, expect, suite, test, vi } from "vitest";
 import { getWeatherData } from "./weather-fetcher";
 
 suite("getWeatherData", () => {

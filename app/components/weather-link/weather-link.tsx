@@ -1,13 +1,12 @@
-import { Link, useViewTransitionState } from "react-router";
-import { InlineWeather } from "../inline-weather/inline-weather";
-import type { Position } from "~/types";
-import styles from "./weather-link.module.css";
-
+import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { locationDataQuery } from "~/queryClient";
+import { Link, useViewTransitionState } from "react-router";
 import { parseTown } from "~/helpers/geocode-parser";
+import { locationDataQuery } from "~/queryClient";
+import type { Position } from "~/types";
+import { InlineWeather } from "../inline-weather/inline-weather";
+import styles from "./weather-link.module.css";
 
 type Props = Readonly<{
 	position: Position;
@@ -32,7 +31,12 @@ export function WeatherLink(props: Props) {
 		}
 
 		return [props.position, props.subtitle];
-	}, [locationData.data, props.position]);
+	}, [
+		locationData.isSuccess,
+		locationData.data,
+		props.position,
+		props.subtitle,
+	]);
 
 	const href = `/weather/${props.position}`;
 	const graphic = `/${props.position}-stencil.svg`;

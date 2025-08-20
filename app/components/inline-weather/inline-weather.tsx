@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
+import { useMemo } from "react";
 import { useViewTransitionState } from "react-router";
 import { weatherQuery } from "~/queryClient";
 import type { Position } from "~/types";
-
 import styles from "./inline-weather.module.css";
-import { useMemo } from "react";
 
 type Props = Readonly<{
 	position: Position;
@@ -20,11 +19,11 @@ export function InlineWeather(props: Props) {
 			return "Loading...";
 		}
 
-		return (
+		return `${
 			weather.data?.properties.timeseries[0].data.instant.details
-				.air_temperature + " °C"
-		);
-	}, [weather.data]);
+				.air_temperature
+		} °C`;
+	}, [weather.isSuccess, weather.data]);
 
 	const href = `/weather/${props.position}`;
 	const isTransitioning = useViewTransitionState(href);

@@ -1,12 +1,8 @@
 import { QueryClient, queryOptions } from "@tanstack/react-query";
-import {
-	getLocation,
-	type Latitude,
-	type Longitude,
-} from "./helpers/locations";
+import { getLocationData } from "./helpers/location-fetcher";
+import { getLocation } from "./helpers/locations";
 import { getWeatherData } from "./helpers/weather-fetcher";
 import type { Position } from "./types";
-import { getLocationData } from "./helpers/location-fetcher";
 
 export const queryClient = new QueryClient({
 	defaultOptions: {

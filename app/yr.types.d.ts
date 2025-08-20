@@ -303,33 +303,24 @@ export interface Details {
 	relative_humidity: number;
 	wind_from_direction: number;
 	wind_speed: number;
+	precipitation_amount: number;
 }
 
 export interface Next12Hours {
 	summary: Summary;
-	details: Details2;
+	details: Details;
 }
 
 export interface Summary {
 	symbol_code: SymbolCode;
 }
 
-export interface Details2 {}
-
 export interface Next1Hours {
 	summary: Summary;
-	details: Details3;
-}
-
-export interface Details3 {
-	precipitation_amount: number;
+	details: Details;
 }
 
 export interface Next6Hours {
 	summary: Summary;
-	details: Details4;
-}
-
-export interface Details4 {
-	precipitation_amount: number;
+	details: Details;
 }
