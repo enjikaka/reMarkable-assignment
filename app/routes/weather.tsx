@@ -8,6 +8,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { yrSymbolCodeToWeatherIcon } from "~/helpers/icon-mapper";
 import { parseTown } from "~/helpers/geocode-parser";
 import { Forecast } from "~/components/forecast/forecast";
+import { InlineWeather } from "~/components/inline-weather/inline-weather";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -26,9 +27,7 @@ export async function clientLoader({ params }: Route.LoaderArgs) {
   return { position: position as Position };
 }
 
-export default function Weather({
-  loaderData,
-}: Route.ComponentProps) {
+export default function Weather() {
   const { position } = useLoaderData() as Awaited<
     ReturnType<typeof clientLoader>
   >;
@@ -46,7 +45,7 @@ export default function Weather({
       </header>
       <div className={styles.weatherBlock}>
         <img className={styles.icon} src={'/weather-icons/' + yrSymbolCodeToWeatherIcon(weather.properties.timeseries[0].data.next_1_hours.summary.symbol_code) + '.svg'} alt={`Weather icon for ${position}`} />
-        <span className={styles.temperature}>{weather.properties.timeseries[0].data.instant.details.air_temperature} °C</span>
+        <InlineWeather position={position} className={styles.temperature} />
       </div>
       <Forecast position={position} className={styles.forecast} />
     </article>

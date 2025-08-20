@@ -18,7 +18,7 @@ export function WeatherLink(props: Props) {
     const locationData = useQuery(locationDataQuery(props.position, props.position === 'here'));
 
     const [title, subtitle] = useMemo<[string, string]>(() => {
-        if (locationData.data && props.position === 'here') {
+        if (locationData.data && locationData.isSuccess && props.position === 'here') {
             return [parseTown(locationData.data.features[0].properties.address), locationData.data.features[0].properties.address.country];
         }
 
