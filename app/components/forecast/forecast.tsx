@@ -7,38 +7,42 @@ import type { YrGeoJSON } from "~/yr.types";
 import clsx from "clsx";
 
 type Props = Readonly<{
-    position: Position;
-    className?: string;
+	position: Position;
+	className?: string;
 }>;
 
 export function Forecast(props: Props) {
-    const weather = useQuery(weatherQuery(props.position));
-    const geojson = weather.data as YrGeoJSON;
+	const weather = useQuery(weatherQuery(props.position));
+	const geojson = weather.data as YrGeoJSON;
 
-    return (
-        <div className={clsx(styles.forecast, props.className)}>
-            {geojson.properties.timeseries.map(timeSeries => {
-                const symbolCode = timeSeries.data.next_1_hours?.summary.symbol_code;
-                const icon = symbolCode ? yrSymbolCodeToWeatherIcon(symbolCode) : 'cloudy';
+	return (
+		<div className={clsx(styles.forecast, props.className)}>
+			{geojson.properties.timeseries.map((timeSeries) => {
+				const symbolCode = timeSeries.data.next_1_hours?.summary.symbol_code;
+				const icon = symbolCode
+					? yrSymbolCodeToWeatherIcon(symbolCode)
+					: "cloudy";
 
-                return (
-                    <div className={styles.forecastItem} key={timeSeries.time}>
-                        <div className={styles.forecastItemTime}>
-                            {new Date(timeSeries.time).toLocaleDateString('nb-NO', {
-                                weekday: 'short',
-                                month: 'short',
-                                day: 'numeric',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            })}
-                        </div>
-                        <div className={styles.forecastItemIcon}>
-                            <img src={`/weather-icons/${icon}.svg`} alt={symbolCode} />
-                        </div>
-                        <div className={styles.forecastItemTemperature}>{timeSeries.data.instant.details.air_temperature} °C</div>
-                    </div>
-                );
-            })}
-        </div>
-    );
+				return (
+					<div className={styles.forecastItem} key={timeSeries.time}>
+						<div className={styles.forecastItemTime}>
+							{new Date(timeSeries.time).toLocaleDateString("nb-NO", {
+								weekday: "short",
+								month: "short",
+								day: "numeric",
+								hour: "2-digit",
+								minute: "2-digit",
+							})}
+						</div>
+						<div className={styles.forecastItemIcon}>
+							<img src={`/weather-icons/${icon}.svg`} alt={symbolCode} />
+						</div>
+						<div className={styles.forecastItemTemperature}>
+							{timeSeries.data.instant.details.air_temperature} °C
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	);
 }

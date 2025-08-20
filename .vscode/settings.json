@@ -1,5 +1,5 @@
 {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.formatOnSave": true,
-    "typescript.inlayHints.parameterNames.enabled": "all"
+	"editor.defaultFormatter": "vscode.typescript-language-features",
+	"editor.formatOnSave": true,
+	"typescript.inlayHints.parameterNames.enabled": "all"
 }

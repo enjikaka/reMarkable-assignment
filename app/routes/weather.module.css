@@ -1,64 +1,64 @@
 .weatherArticle {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    max-width: 500px;
-    margin: 1rem auto;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100%;
+	max-width: 500px;
+	margin: 1rem auto;
 }
 
 .weatherArticle h1 {
-    view-transition-name: location-metadata;
+	view-transition-name: location-metadata;
 }
 
 .weatherArticle p {
-    flex: 1;
+	flex: 1;
 }
 
 .weatherArticle img {
-    @media (prefers-color-scheme: dark) {
-        filter: invert(1);
-    }
+	@media (prefers-color-scheme: dark) {
+		filter: invert(1);
+	}
 }
 
 .icon {
-    width: 128px;
+	width: 128px;
 }
 
 .stencil {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 1rem;
-    view-transition-name: location-image;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 1rem;
+	view-transition-name: location-image;
 }
 
 .temperature {
-    view-transition-name: location-temperature;
+	view-transition-name: location-temperature;
 }
 
 .weatherArticle header {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	gap: 1rem;
 
-    img {
-        margin: 0 auto;
-    }
+	img {
+		margin: 0 auto;
+	}
 
-    h1 {
-        font-size: 2rem;
-    }
+	h1 {
+		font-size: 2rem;
+	}
 }
 
 .weatherBlock {
-    font-size: 2rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column nowrap;
+	font-size: 2rem;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column nowrap;
 }
 
 .forecast {
-    margin: 2rem 1rem;
+	margin: 2rem 1rem;
 }
